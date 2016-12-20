@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Error controller"""
-from tg import request, expose
 from sibooru.lib.base import BaseController
+from tg import request, expose
 
 __all__ = ['ErrorController']
 

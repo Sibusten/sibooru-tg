@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """Template Helpers used in sibooru."""
 import logging
-from markupsafe import Markup
 from datetime import datetime
+
+from markupsafe import Markup
 
 log = logging.getLogger(__name__)
 
@@ -17,7 +18,6 @@ def icon(icon_name):
 
 
 # Import commonly used helpers from WebHelpers2 and TG
-from tg.util.html import script_json_encode
 
 try:
     from webhelpers2 import date, html, number, misc, text

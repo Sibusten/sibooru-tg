@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """The application's model objects"""
 
-from zope.sqlalchemy import ZopeTransactionExtension
-from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import scoped_session, sessionmaker
+from zope.sqlalchemy import ZopeTransactionExtension
 
 # Global session manager: DBSession() returns the Thread-local
 # session object appropriate for the current web request.
@@ -25,6 +25,7 @@ DeclarativeBase = declarative_base()
 # Global metadata.
 # The default metadata is the one from the declarative base.
 metadata = DeclarativeBase.metadata
+
 
 # If you have multiple databases with overlapping table names, you'll need a
 # metadata for each database. Feel free to rename 'metadata2'.
@@ -55,6 +56,7 @@ def init_model(engine):
     # t_reflected = Table("Reflected", metadata,
     #                     autoload=True, autoload_with=engine)
     # mapper(Reflected, t_reflected)
+
 
 # Import your model modules here.
 from sibooru.model.auth import User, Group, Permission

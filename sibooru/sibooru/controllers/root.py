@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*-
 """Main Controller"""
 
-from tg import expose, flash, require, url, lurl
-from tg import request, redirect, tmpl_context
-from tg.i18n import ugettext as _, lazy_ugettext as l_
-from tg.exceptions import HTTPFound
-from tg import predicates
 from sibooru import model
-from sibooru.model import DBSession
-from tgext.admin.tgadminconfig import BootstrapTGAdminConfig as TGAdminConfig
-from tgext.admin.controller import AdminController
-
-from sibooru.lib.base import BaseController
 from sibooru.controllers.error import ErrorController
+from sibooru.lib.base import BaseController
+from sibooru.model import DBSession
+from tg import expose, flash, require, lurl
+from tg import predicates
+from tg import request, redirect, tmpl_context
+from tg.exceptions import HTTPFound
+from tg.i18n import ugettext as _, lazy_ugettext as l_
+from tgext.admin.controller import AdminController
+from tgext.admin.tgadminconfig import BootstrapTGAdminConfig as TGAdminConfig
 
 __all__ = ['RootController']
 
@@ -42,6 +41,7 @@ class RootController(BaseController):
     def index(self):
         """Handle the front-page."""
         return dict(page='index')
+
     @expose('sibooru.templates.index')
     @require(predicates.has_permission('manage', msg=l_('Only for managers')))
     def manage_permission_only(self, **kw):

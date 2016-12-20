@@ -2,13 +2,13 @@
 """Unit and functional test suite for sibooru."""
 
 from os import getcwd
-from paste.deploy import loadapp
-from webtest import TestApp
+
 from gearbox.commands.setup_app import SetupAppCommand
+from paste.deploy import loadapp
+from sibooru import model
 from tg import config
 from tg.util import Bunch
-
-from sibooru import model
+from webtest import TestApp
 
 __all__ = ['setup_app', 'setup_db', 'teardown_db', 'TestController']
 

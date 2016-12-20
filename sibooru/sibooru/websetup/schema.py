@@ -2,8 +2,8 @@
 """Setup the sibooru application"""
 from __future__ import print_function
 
-from tg import config
 import transaction
+from tg import config
 
 
 def setup_schema(command, conf, vars):

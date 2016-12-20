@@ -11,6 +11,7 @@ though.
 import os
 from datetime import datetime
 from hashlib import sha256
+
 __all__ = ['User', 'Group', 'Permission']
 
 from sqlalchemy import Table, ForeignKey, Column
@@ -18,7 +19,6 @@ from sqlalchemy.types import Unicode, Integer, DateTime
 from sqlalchemy.orm import relation, synonym
 
 from sibooru.model import DeclarativeBase, metadata, DBSession
-
 
 # This is the association table for the many-to-many relationship between
 # groups and permissions.
@@ -33,7 +33,6 @@ group_permission_table = Table('tg_group_permission', metadata,
                                                  onupdate="CASCADE",
                                                  ondelete="CASCADE"),
                                       primary_key=True))
-
 
 # This is the association table for the many-to-many relationship between
 # groups and members - this is, the memberships.
@@ -130,7 +129,6 @@ class User(DeclarativeBase):
         hash = hash.hexdigest()
 
         password = salt + hash
-
 
         return password
 

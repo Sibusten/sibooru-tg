@@ -9,7 +9,6 @@ should be updated.
 from __future__ import unicode_literals
 
 from nose.tools import eq_, ok_
-
 from sibooru.tests import TestController
 
 
@@ -22,6 +21,7 @@ class TestAuthentication(TestController):
     """
 
     application_under_test = 'main'
+
     def test_forced_login(self):
         """Anonymous users are forced to login
 

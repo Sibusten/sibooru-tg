@@ -5,10 +5,9 @@ Global configuration file for TG2-specific settings in sibooru.
 This file complements development/deployment.ini.
 
 """
-from tg.configuration import AppConfig
-
 import sibooru
-from sibooru import model, lib
+from sibooru import model
+from tg.configuration import AppConfig
 
 base_config = AppConfig()
 base_config.renderers = []
@@ -35,7 +34,6 @@ base_config.renderers.append('kajiki')
 base_config['templating.kajiki.strip_text'] = False  # Change this in setup.py too for i18n to work.
 
 base_config.default_renderer = 'kajiki'
-
 
 # Configure Sessions, store data as JSON to avoid pickle security issues
 base_config['session.enabled'] = True
@@ -104,6 +102,7 @@ class ApplicationAuthMetadata(TGAuthMetadata):
     def get_permissions(self, identity, userid):
         return [p.permission_name for p in identity['user'].permissions]
 
+
 base_config.sa_auth.dbsession = model.DBSession
 
 base_config.sa_auth.authmetadata = ApplicationAuthMetadata(base_config.sa_auth)
@@ -136,6 +135,7 @@ base_config.sa_auth.post_logout_url = '/post_logout'
 try:
     # Enable DebugBar if available, install tgext.debugbar to turn it on
     from tgext.debugbar import enable_debugbar
+
     enable_debugbar(base_config)
 except ImportError:
     pass

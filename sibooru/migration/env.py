@@ -1,4 +1,5 @@
 from __future__ import with_statement
+
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
@@ -16,7 +17,9 @@ config = context.config
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 from sibooru import model
+
 target_metadata = model.metadata
+
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
