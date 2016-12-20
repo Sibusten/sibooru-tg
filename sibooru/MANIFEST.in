@@ -1,0 +1,4 @@
+recursive-include sibooru/public *
+include sibooru/public/favicon.ico
+recursive-include sibooru/i18n *
+recursive-include sibooru/templates *
