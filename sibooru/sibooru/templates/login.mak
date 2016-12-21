@@ -1,9 +1,5 @@
-<html py:extends="master.xhtml" py:strip="True">
-<head py:block="head" py:strip="True">
-  <title py:block="master_title">Login</title>
-</head>
-
-<body py:block="body" py:strip="True">
+<%inherit file="local:templates.master"/>
+<%def name="title()">Login Form</%def>
   <h1>Login</h1>
 
   <div class="row">
@@ -26,7 +22,7 @@
           <div class="col-sm-10 col-sm-offset-2">
             <div class="checkbox">
               <label>
-                <input type="checkbox" name="remember" value="2252000"/> remember me
+                <input type="checkbox" name="remember" value="2252000" /> remember me
               </label>
             </div>
           </div>
@@ -39,5 +35,3 @@
       </form>
     </div>
   </div>
-</body>
-</html>

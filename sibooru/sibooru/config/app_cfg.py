@@ -30,10 +30,10 @@ base_config.package = sibooru
 base_config.renderers.append('json')
 
 # Set the default renderer
-base_config.renderers.append('kajiki')
+base_config.renderers.append('mako')
 base_config['templating.kajiki.strip_text'] = False  # Change this in setup.py too for i18n to work.
 
-base_config.default_renderer = 'kajiki'
+base_config.default_renderer = 'mako'
 
 # Configure Sessions, store data as JSON to avoid pickle security issues
 base_config['session.enabled'] = True
