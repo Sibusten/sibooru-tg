@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 
 <head>
@@ -8,15 +8,15 @@
 </head>
 
 <body>
-<h1>Error ${code}</h1>
+  <h1>Error ${code}</h1>
 
-<%
-import re
-mf = re.compile(r'(</?)script', re.IGNORECASE)
-def fixmessage(message):
+  <%
+    import re
+    mf = re.compile(r'(</?)script', re.IGNORECASE)
+    def fixmessage(message):
     return mf.sub(r'\1noscript', message)
-%>
+  %>
 
-<div>${fixmessage(message) | n}</div>
+  <div>${fixmessage(message) | n}</div>
 </body>
 </html>
