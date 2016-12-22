@@ -35,6 +35,9 @@ base_config['templating.kajiki.strip_text'] = False  # Change this in setup.py t
 
 base_config.default_renderer = 'mako'
 
+# Add kajiki as a renderer so the debugbar will function
+base_config.renderers.append('kajiki')
+
 # Configure Sessions, store data as JSON to avoid pickle security issues
 base_config['session.enabled'] = True
 base_config['session.data_serializer'] = 'json'
