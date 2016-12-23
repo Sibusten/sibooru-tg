@@ -1,9 +1,17 @@
-.header
-{
-    border-bottom: 1px solid black;
-}
+#tgdb_debugbar {
+  display: none; }
 
-.footer
-{
-    border-top: 1px solid black;
-}
+body {
+  background-color: #F0F8FF;
+  color: black; }
+
+.header {
+  border-bottom: 1px solid #001A2D;
+  background-color: #5FAADF; }
+
+.footer {
+  border-top: 1px solid #001A2D;
+  background-color: white;
+  text-align: center; }
+
+/*# sourceMappingURL=base.css.map */

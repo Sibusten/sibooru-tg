@@ -1,0 +1,62 @@
+// Main Primary Color
+$color-primary-0: #F0F8FF;
+$color-primary-1: #BBDFF8;
+$color-primary-2: #8CC4EC;
+$color-primary-3: #5FAADF;
+$color-primary-4: #3B95D4;
+$color-primary-5: #197FC8;
+$color-primary-6: #0761A1;
+$color-primary-7: #054D81;
+$color-primary-8: #033C64;
+$color-primary-9: #012D4B;
+$color-primary-10: #001A2D;
+$color-primary-11: #000A11;
+
+// Main Complement Color
+$color-complement-0: #FFF8EF;
+$color-complement-1: #FFE2BC;
+$color-complement-2: #FFCF90;
+$color-complement-3: #FFBB62;
+$color-complement-4: #FFAA3B;
+$color-complement-5: #FF9811;
+$color-complement-6: #FB8E00;
+$color-complement-7: #C97100;
+$color-complement-8: #9C5800;
+$color-complement-9: #764200;
+$color-complement-10: #472800;
+$color-complement-11: #1B0F00;
+
+// Default Font Colors
+$font-color: black;
+$font-color-inverse: white;
+
+// Default Background Color
+$background-color: $color-primary-0;
+
+// Debugbar toggle
+#tgdb_debugbar {
+  display: none;
+}
+
+
+// TODO: Is this too silly?
+body {
+  background-color: $background-color;
+
+  color: $font-color;
+}
+
+.header {
+  border-bottom: 1px solid $color-primary-10;
+
+  background-color: $color-primary-3;
+}
+
+.footer {
+  border-top: 1px solid $color-primary-10;
+
+  background-color: white;
+
+  text-align: center;
+}
+
