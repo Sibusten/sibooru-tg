@@ -16,18 +16,18 @@ from tgext.admin.tgadminconfig import BootstrapTGAdminConfig as TGAdminConfig
 __all__ = ['RootController']
 
 
-# class ImagesController(BaseController):
-#     """Upload form"""
-#
-#     @expose('sibooru.templates.images.new')
-#     def new(self):
-#         return
+class ImagesController(BaseController):
+    """Upload form"""
+
+    @expose('sibooru.templates.images.new')
+    def new(self):
+        return dict()
 
 
 class RootController(BaseController):
     error = ErrorController()
 
-    # images = ImagesController()
+    images = ImagesController()
 
     """The front page"""
     @expose('sibooru.templates.index')
