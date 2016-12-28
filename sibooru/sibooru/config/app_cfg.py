@@ -31,12 +31,13 @@ base_config.renderers.append('json')
 
 # Set the default renderer
 base_config.renderers.append('mako')
-base_config['templating.kajiki.strip_text'] = False  # Change this in setup.py too for i18n to work.
-
 base_config.default_renderer = 'mako'
+base_config['templating.mako.template_extension'] = '.mako'
 
 # Add kajiki as a renderer so the debugbar will function
 base_config.renderers.append('kajiki')
+
+base_config['templating.kajiki.strip_text'] = False  # Change this in setup.py too for i18n to work.
 
 # Configure Sessions, store data as JSON to avoid pickle security issues
 base_config['session.enabled'] = True
