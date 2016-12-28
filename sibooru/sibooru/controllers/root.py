@@ -12,8 +12,11 @@ from tg.exceptions import HTTPFound
 from tg.i18n import ugettext as _, lazy_ugettext as l_
 from tgext.admin.controller import AdminController
 from tgext.admin.tgadminconfig import BootstrapTGAdminConfig as TGAdminConfig
+import logging
 
-__all__ = ['RootController']
+__all__ = ['RootController', 'ImagesController']
+
+log = logging.getLogger(__name__)
 
 
 class ImagesController(BaseController):
@@ -21,6 +24,7 @@ class ImagesController(BaseController):
 
     @expose('sibooru.templates.images.new')
     def new(self):
+        log.info("Someone wants to upload an image!")
         return dict()
 
 
