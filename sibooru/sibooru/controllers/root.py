@@ -32,7 +32,7 @@ class RootController(BaseController):
     """The front page"""
     @expose('sibooru.templates.index')
     def index(self):
-        return
+        return dict()
 
 
 # class RootController(BaseController):
