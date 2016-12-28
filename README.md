@@ -1,4 +1,4 @@
-# Derpilocal
+# Sibooru
 
 ## Basic Installation
 This is temporary: will be fixed later
