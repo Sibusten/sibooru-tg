@@ -59,8 +59,8 @@ def init_model(engine):
 
 
 # Import your model modules here.
-from sibooru.model.auth import User, Group, Permission
+from sibooru.model.auth import AuthUser, AuthGroup, AuthPermission
 from sibooru.model.booru import Tag, Image, Vote, Favorite
 
-__all__ = ('User', 'Group', 'Permission',
-           'Tag', 'Image', 'Vote', 'Favorite')
+# __all__ = ('AuthUser', 'AuthGroup', 'AuthPermission',
+#            'Tag', 'Image', 'Vote', 'Favorite')

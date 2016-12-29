@@ -51,7 +51,7 @@ base_config.auth_backend = 'sqlalchemy'
 # YOU MUST CHANGE THIS VALUE IN PRODUCTION TO SECURE YOUR APP
 base_config.sa_auth.cookie_secret = "6995e8e5-6660-4295-aa7b-c24d394eaab3"
 # what is the class you want to use to search for users in the database
-base_config.sa_auth.user_class = model.User
+base_config.sa_auth.user_class = model.AuthUser
 
 from tg.configuration.auth import TGAuthMetadata
 
@@ -64,7 +64,7 @@ class ApplicationAuthMetadata(TGAuthMetadata):
     def authenticate(self, environ, identity):
         login = identity['login']
         user = self.sa_auth.dbsession.query(self.sa_auth.user_class).filter_by(
-            user_name=login
+            username=login
         ).first()
 
         if not user:
@@ -97,7 +97,7 @@ class ApplicationAuthMetadata(TGAuthMetadata):
 
     def get_user(self, identity, userid):
         return self.sa_auth.dbsession.query(self.sa_auth.user_class).filter_by(
-            user_name=userid
+            username=userid
         ).first()
 
     def get_groups(self, identity, userid):
