@@ -3,7 +3,9 @@
 
 import logging
 
-from tg import expose
+from tg import expose, lurl, request, redirect, flash
+from tg.exceptions import HTTPFound
+from tg.i18n import ugettext as _, lazy_ugettext as l_
 from tgext.admin.controller import AdminController
 from tgext.admin.tgadminconfig import BootstrapTGAdminConfig as TGAdminConfig
 
@@ -34,6 +36,31 @@ class RootController(BaseController):
         """The homepage"""
         return dict()
 
+    @expose('sibooru.templates.login')
+    def login(self, came_from=lurl('/'), failure=None, username=''):
+        if failure is not None:
+            if failure == 'user-not-found':
+                flash(_('User not found'), 'error')
+            elif failure == 'invalid-password':
+                flash(_('Invalid password'), 'error')
+
+        login_counter = request.environ.get('repoze.who.logins', 0)
+        if failure is None and login_counter > 0:
+            flash(_('Wrong credentials'), 'warning')
+
+        return dict(page='login', login_counter=str(login_counter), came_from=came_from, username=username)
+
+    @expose()
+    def post_login(self, came_from=lurl('/')):
+        if not request.identity:
+            login_counter = request.environ.get('repoze.who.logins', 0) + 1
+            redirect('/login', params=dict(came_from=came_from, __logins=login_counter))
+        userid = request.identity['repoze.who.userid']
+        flash(_('Welcome back, {}!').format(userid))
+
+        return HTTPFound(location=came_from)
+
+
 # class RootController(BaseController):
 #     """
 #     The root controller for the sibooru application.
@@ -48,17 +75,6 @@ class RootController(BaseController):
 #     must be wrapped around with :class:`tg.controllers.WSGIAppController`.
 #
 #     """
-#     admin = AdminController(model, DBSession, config_type=TGAdminConfig)
-#
-#     error = ErrorController()
-#
-#     def _before(self, *args, **kw):
-#         tmpl_context.project_name = "sibooru"
-#
-#     @expose('sibooru.templates.index')
-#     def index(self):
-#         """Handle the front-page."""
-#         return dict(page='index')
 #
 #     @expose('sibooru.templates.index')
 #     @require(predicates.has_permission('manage', msg=l_('Only for managers')))
